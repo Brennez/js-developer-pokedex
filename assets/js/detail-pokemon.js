@@ -3,7 +3,19 @@ const pokemonId = params.get("Number");
 
 const pokemonDetailElement = document.getElementById("content");
 
+const getPokemonEspecies = async () => {
+  const response = await fetch(
+    `https://pokeapi.co/api/v2/pokemon-species/${pokemonId}`
+  );
+
+  const data = await response.json();
+
+  return data;
+};
+
 const getPokemonDetail = async () => {
+  const especies = await getPokemonEspecies();
+
   const response = await fetch(
     `https://pokeapi.co/api/v2/pokemon/${pokemonId}`
   );
@@ -11,11 +23,13 @@ const getPokemonDetail = async () => {
   const data = await response.json();
 
   const pokemon = convertPokeApiDetailToPokemon(data);
-  const newHtml = convertPokemonDetails(pokemon);
+
+  const newHtml = convertPokemonDetails(pokemon, especies);
+
   pokemonDetailElement.innerHTML += newHtml;
 };
 
-function convertPokemonDetails(pokemon) {
+function convertPokemonDetails(pokemon, especies) {
   return `
   <section class="pokemonDetail ${pokemon.type}">
         <div class="actions">
@@ -44,7 +58,6 @@ function convertPokemonDetails(pokemon) {
         </div>
         <div class="img">
             <img src="${pokemon.photo}" alt="${pokemon.name}">
-
         </div>
         <div class="detailsContent">
             <div class="titleContent">
@@ -56,15 +69,14 @@ function convertPokemonDetails(pokemon) {
                     Species: <span class="detailValue">Seed</span>
                 </li>
                 <li>
-                    Height: <span class="detailValue">2' 3.6° (0.70cm)</span>
+                    Height: <span class="detailValue">${pokemon.height}</span>
                 </li>
                 <li>
-                    Weight: <span class="detailValue">15.2 lbs (6.9 kg)</span>
+                    Weight: <span class="detailValue">${pokemon.weight}</span>
                 </li>
-                <li id="Abilities">
+                <li>
                     Abilities: 
-                            <span class="detailValue" >OverGrow,</span>
-                            <span class="detailValue" >Chlorophyl,</span>
+                            
                 </li>
             </ul>
             <h3>Breeding</h3>
@@ -73,7 +85,10 @@ function convertPokemonDetails(pokemon) {
                     Gender: <span class="detailValue"> 87.5% 12.5%</span>
                 </li>
                 <li>
-                    Egg Groups: <span class="detailValue">Monster</span>
+                    Egg Groups: ${especies.egg_groups.map(
+                      (item) =>
+                        `<span class="detailValue" id="hability" >${item.name}</span>`
+                    )}
                 </li>
                 <li>
                     Egg Cycle: <span class="detailValue">Grass</span>

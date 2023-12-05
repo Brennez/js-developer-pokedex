@@ -182,6 +182,10 @@
   display: block;
 }
 
+#hability{
+  text-transform: capitalize;
+}
+
 .detailsContent h3 {
   color: #565564;
   padding-left: 3.4rem;
