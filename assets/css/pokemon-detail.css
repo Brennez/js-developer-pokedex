@@ -1,122 +1,188 @@
 * {
-    font-family: 'Roboto', sans-serif;
-    box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
 }
 
-.pokemonDetail .actions{
-    display: flex;
-    justify-content: space-between;
-    padding: 2rem 1rem;
+.normal {
+  background-color: #a6a877;
 }
 
-.pokemonDetail .actions #backIcon{
-    color: white;
+.grass {
+  background-color: #77c850;
 }
 
-.pokemonDetail .actions #favoriteIcon{
-    color: white;
+.fire {
+  background-color: #ee7f30;
 }
 
-.pokemonDetail{
-    background-color: #5ddfc6;
-    height: 100vh;
+.water {
+  background-color: #678fee;
 }
 
-.pokemonDetail h1{
-    margin: 0;
-    padding: 1rem;
-    color: white;
+.electric {
+  background-color: #f7cf2e;
 }
 
-.pokemonDetail .tags{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0rem 1rem;
+.ice {
+  background-color: #98d5d7;
 }
 
-.pokemonDetail .tags span{
-    color: white;
-    font-size: 1rem;
+.ground {
+  background-color: #dfbf69;
 }
 
-.pokemonDetail .types{
-    list-style: none;
-    display: flex;
+.flying {
+  background-color: #a98ff0;
 }
 
-.pokemonDetail .types li{
-    display: flex;
-    margin-right: 10px;
-    color: white;
-    background-color: #5ddfc6;
-    padding: .25rem .5rem;
-    border-radius: 1rem;
-    filter: brightness(1.1);  
+.poison {
+  background-color: #a040a0;
 }
 
-.pokemonDetail .img{
-    display: flex;
-    justify-content: center;
-
-    
+.fighting {
+  background-color: #bf3029;
 }
 
-.pokemonDetail img{
-    max-width: 100%;
-    display: flex;
-    position: relative;
-    bottom: -4rem;
+.psychic {
+  background-color: #f65687;
+}
+
+.dark {
+  background-color: #725847;
+}
+
+.rock {
+  background-color: #b8a137;
+}
+
+.bug {
+  background-color: #a8b720;
+}
+
+.ghost {
+  background-color: #6e5896;
+}
+
+.steel {
+  background-color: #b9b7cf;
+}
+
+.dragon {
+  background-color: #6f38f6;
+}
+
+.fairy {
+  background-color: #f9aec7;
+}
+
+.pokemonDetail .actions {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 1rem;
+}
+
+.pokemonDetail .actions #backIcon {
+  color: white;
+}
+
+.pokemonDetail .actions #favoriteIcon {
+  color: white;
+}
+
+.pokemonDetail {
+  background-color: #5ddfc6;
+  height: 100vh;
+}
+
+.pokemonDetail h1 {
+  margin: 0;
+  padding: 1rem;
+  text-transform: capitalize;
+  
+  color: white;
+}
+
+.pokemonDetail .tags {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0rem 1rem;
+}
+
+.pokemonDetail .tags span {
+  color: white;
+  font-size: 1rem;
+}
+
+.pokemonDetail .types {
+  list-style: none;
+  display: flex;
+}
+
+.pokemonDetail .types li {
+  display: flex;
+  margin-right: 10px;
+  color: white;
+  /* background-color: #5ddfc6; */
+  padding: 0.25rem 0.5rem;
+  border-radius: 1rem;
+  filter: brightness(1.1);
+}
+
+.pokemonDetail .img {
+  display: flex;
+  justify-content: center;
+}
+
+.pokemonDetail img {
+  max-width: 100%;
+  display: flex;
+  position: relative;
+  bottom: -4rem;
 }
 
 .detailsContent {
-    background-color: white;
-    padding: 5rem 0;
-    height: 100%;
-    border-radius: 4rem;
+  background-color: white;
+  padding: 5rem 0;
+  height: 100%;
+  border-radius: 4rem;
 }
 
-.detailsContent .titleContent{
-    display: flex;
-    justify-content: center;
+.detailsContent .titleContent {
+  display: flex;
+  justify-content: center;
 }
 
-.detailsContent .titleContent h2{
-    border-bottom: 2px solid #000; 
-    padding-bottom: 5px; 
-    margin-bottom: 10px; 
-    color: #565564;
+.detailsContent .titleContent h2 {
+  border-bottom: 2px solid #000;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  color: #565564;
 }
 
-.detailsContent ul{
-    /* display: flex; */
-    flex-direction: column;
-    justify-content: start;
+.detailsContent ul {
+  /* display: flex; */
+  flex-direction: column;
+  justify-content: start;
 }
 
-.detailsContent ul li{
-    list-style: none;
-    color: #a8acb1;
-    margin: 1rem;
-    display: flex;
-    align-items: center;
-    text-align: start;
+.detailsContent ul li {
+  list-style: none;
+  color: #a8acb1;
+  margin: 1rem;
+  display: flex;
+  align-items: center;
+  text-align: start;
 }
 
-.detailsContent .detailValue{
-    color: #565564;
-    margin-left: 1rem;
-    display: block;
+.detailsContent .detailValue {
+  color: #565564;
+  margin-left: 1rem;
+  display: block;
 }
 
-
-.detailsContent h3{
-    color: #565564;
-    padding-left: 3.4rem;
+.detailsContent h3 {
+  color: #565564;
+  padding-left: 3.4rem;
 }
-
-
-
-
-

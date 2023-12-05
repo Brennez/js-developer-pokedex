@@ -1,7 +1,7 @@
 const params = new URLSearchParams(window.location.search);
 const pokemonId = params.get("Number");
 
-let pokemonDetailElement = document.getElementById("content");
+const pokemonDetailElement = document.getElementById("content");
 
 const getPokemonDetail = async () => {
   const response = await fetch(
@@ -9,11 +9,15 @@ const getPokemonDetail = async () => {
   );
 
   const data = await response.json();
+
+  const pokemon = convertPokeApiDetailToPokemon(data);
+  const newHtml = convertPokemonDetails(pokemon);
+  pokemonDetailElement.innerHTML += newHtml;
 };
 
-function convertPokemonDetails() {
+function convertPokemonDetails(pokemon) {
   return `
-  <section class="pokemonDetail">
+  <section class="pokemonDetail ${pokemon.type}">
         <div class="actions">
             <a href="index.html">
                 <span class="material-symbols-outlined" id="backIcon">
@@ -27,18 +31,19 @@ function convertPokemonDetails() {
             </a>
 
         </div>
-        <h1> Bulbasaur</h1>
+        <h1> ${pokemon.name}</h1>
         <div class="tags">
             <ol class="types">
-                <li>grass</li>
-                <li>poison</li>
+            ${pokemon.types
+              .map((type) => `<li class="type ${type}">${type}</li>`)
+              .join("")}
             </ol>
             <span>
-                #001
+                #${pokemon.number}
             </span>
         </div>
         <div class="img">
-            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg" alt="bulbassaur">
+            <img src="${pokemon.photo}" alt="${pokemon.name}">
 
         </div>
         <div class="detailsContent">
@@ -80,11 +85,7 @@ function convertPokemonDetails() {
 }
 
 function loadDetailPokemon() {
-  const newHtml = convertPokemonDetails();
-
-  pokemonDetailElement += newHtml;
+  console.log(`hello ${newHtml}`);
 }
 
 getPokemonDetail();
-
-loadDetailPokemon();
